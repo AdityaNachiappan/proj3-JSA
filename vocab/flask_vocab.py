@@ -101,8 +101,7 @@ WORDS = Vocab(CONFIG.VOCAB)
 # Respond appropriately
 	if matched and in_jumble and not (text in matches):
 # Cool, they found a new word
-		
- 	matches.append(text)
+	matches.append(text)
 		flask.session["matches"] = matches	
         message = “Hey, you  found {}!".format(text)
             return flask.jsonify(message = message, target=flask.session["target_count"])                                                               
@@ -120,10 +119,10 @@ WORDS = Vocab(CONFIG.VOCAB)
 			assert False  # Raises AssertionError
 							   
 # Choose page:  Solved enough, or keep going?
-			if len(matches) >= flask.session["target_count"]:               #end game when its over
-				success = true
-				message = "Hey, you won!"
-				return flask.jsonify(message = message, target=flask.session["target_count"], success = success)
+	if len(matches) >= flask.session["target_count"]:               #end game when its over
+	success = true
+	message = "Hey, you won!"
+	return flask.jsonify(message = message, target=flask.session["target_count"], success = success)
 			
 ###############
 # AJAX request handlers
