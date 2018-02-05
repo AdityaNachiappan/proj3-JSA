@@ -113,7 +113,7 @@ WORDS = Vocab(CONFIG.VOCAB)
 			message = “{} isn't in the list of words".format(text)
              return flask.jsonify(message = message, target=flask.session["target_count"])
 		elif not in_jumble:
-			message = ’”{}” can\'t be made from the letters {}'.format(text, jumble)
+			message = ’”{}” can't be made from the letters {}'.format(text, jumble)
              return flask.jsonify(message = message, target=flask.session["target_count"])
 		else:
 			app.logger.debug("This case shouldn't happen!")
