@@ -40,10 +40,8 @@ WORDS = Vocab(CONFIG.VOCAB)
 	def index():
 	"""The main page of the application"""
 	flask.g.vocab = WORDS.as_list()
-	flask.session["target_count"] = min(
-										len(flask.g.vocab), CONFIG.SUCCESS_AT_COUNT)
-	flask.session["jumble"] = jumbled(
-									  flask.g.vocab, flask.session["target_count"])
+	flask.session["target_count"] = min(len(flask.g.vocab), CONFIG.SUCCESS_AT_COUNT)
+	flask.session["jumble"] = jumbled(flask.g.vocab, flask.session["target_count"])
 	flask.session["matches"] = []
 	app.logger.debug("Session variables have been set")
 	assert flask.session["matches"] == []
